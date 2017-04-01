@@ -12,3 +12,13 @@ def mv(*paths):
     else:
         for source in sources:
             os.rename(source, os.path.join(dest, os.path.basename(source)))
+
+def mkdir(path, parents=None):
+    if parents:
+        os.makedirs(path)
+    else:
+        os.mkdir(path)
+
+def touch(path):
+    with open(path, 'a'):
+        os.utime(path)
