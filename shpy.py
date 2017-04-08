@@ -4,7 +4,7 @@ import glob
 
 def glob_all(paths):
     for path in paths:
-        yield from glob.glob(path)
+        yield from sorted(glob.glob(path))
 
 def cp(*paths, recursive=None):
     *sources, dest = glob_all(paths)
