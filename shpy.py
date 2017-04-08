@@ -35,3 +35,10 @@ def mv(*paths):
 def touch(path):
     with open(path, 'a'):
         os.utime(path)
+
+def rm(*paths, recursive=None):
+    for path in paths:
+        if not os.path.isdir(path):
+            os.remove(path)
+        elif recursive:
+            shutil.rmtree(path)
