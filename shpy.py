@@ -1,6 +1,7 @@
 import os
 import shutil
 import glob
+import subprocess
 
 def glob_all(paths):
     for path in paths:
@@ -51,3 +52,6 @@ def rm(*paths, recursive=None):
             shutil.rmtree(path)
         else:
             raise Exception("Can't remove directory without recursive flag")
+
+def run(*cmdlist, stderr=subprocess.STDOUT):
+    return subprocess.check_output(cmdlist, stderr=stderr).decode()
