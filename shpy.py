@@ -53,5 +53,5 @@ def rm(*paths, recursive=None):
         else:
             raise Exception("Can't remove directory without recursive flag")
 
-def run(*cmdlist, stderr=subprocess.STDOUT):
-    return subprocess.check_output(cmdlist, stderr=stderr).decode()
+def run(*cmdlist, stdin=None, stderr=subprocess.STDOUT):
+    return subprocess.check_output(cmdlist, stdin=stdin, stderr=stderr).decode()
